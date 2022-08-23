@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GroupController : MonoBehaviour {
 
@@ -10,6 +11,9 @@ public class GroupController : MonoBehaviour {
 
 	private List<AntController> groupedAnts = new List<AntController>();
 	private List<CarriableObject> carriedObjects = new List<CarriableObject>();
+
+	public UnityEvent<GroupController> OnAntAdded { get; private set; } = new UnityEvent<GroupController>();
+	public UnityEvent<GroupController> OnPickUpCarriable { get; private set; } = new UnityEvent<GroupController>();
 
 	// Start is called before the first frame update
 	void Start() {
@@ -55,7 +59,7 @@ public class GroupController : MonoBehaviour {
 
 	public void CarryObject(CarriableObject @object) {
 		carriedObjects.Add(@object);
-		carryVisualizer.Radius = Mathf.Sqrt(carriedObjects.Count);
+		carryVisualizer.Radius = groupVisualizer.Radius;//Mathf.Sqrt(carriedObjects.Count);
 		carryVisualizer.RecalculatePositions(carriedObjects.Count);
 	}
 }

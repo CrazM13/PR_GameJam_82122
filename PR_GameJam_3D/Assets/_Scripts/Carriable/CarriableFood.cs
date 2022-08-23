@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class CarriableFood : CarriableObject {
 
-	public override void AttemptPickUpBy(GroupController group) {
+	protected override void PickUpBy(GroupController group) {
 		group.CarryObject(this);
 		transform.SetParent(group.transform.parent);
-		CanPickUp = false;
 	}
 
 }

@@ -6,7 +6,7 @@ public class CarriableAnt : CarriableObject {
 
 	[SerializeField] private GameObject groupAntPrefab;
 
-	public override void AttemptPickUpBy(GroupController group) {
+	protected override void PickUpBy(GroupController group) {
 
 		GameObject newAnt = Instantiate(groupAntPrefab, transform.position, transform.rotation, group.transform.parent);
 
@@ -14,7 +14,6 @@ public class CarriableAnt : CarriableObject {
 		if (newAntController) group.AddAnt(newAntController);
 
 		Destroy(gameObject);
-		CanPickUp = false;
 	}
 
 }
