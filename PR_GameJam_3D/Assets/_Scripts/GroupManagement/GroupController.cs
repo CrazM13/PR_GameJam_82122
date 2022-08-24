@@ -59,4 +59,18 @@ public class GroupController : MonoBehaviour {
 	public void CarryObject(CarriableObject @object) {
 		carriedObjects.Add(@object);
 	}
+
+	public int GetCarryObjectScore() {
+		int carryReqs = 0;
+		foreach (CarriableObject obj in carriedObjects) carryReqs += obj.CarryRequirement;
+		return carryReqs;
+	}
+
+	public void ClearCarry() {
+		foreach (CarriableObject obj in carriedObjects) {
+			if (obj is CarriableFood food) food.RemoveCarriableFood();
+			Destroy(obj.gameObject);
+		}
+		carriedObjects.Clear();
+	}
 }

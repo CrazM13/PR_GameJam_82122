@@ -17,4 +17,8 @@ public class CarriableFood : CarriableObject {
 		transform.SetParent(group.transform.parent);
 	}
 
+	public void RemoveCarriableFood() {
+		ServiceLocator.Instance.FoodCollectables.CollectCollectable();
+	}
+
 }
