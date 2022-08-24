@@ -110,3 +110,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 10
   speed: 10
+  adjustableSpeed: 1

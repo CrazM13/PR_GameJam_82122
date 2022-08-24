@@ -7,9 +7,10 @@ public class AntController : MonoBehaviour {
 
 	[SerializeField] private float turnSpeed;
 	[SerializeField] private float speed;
+	[SerializeField] private bool adjustableSpeed = false;
 
-	private Vector3 targetPosition;
-	public float Speed => speed;
+	private float pathLength;
+	private Vector3 nextPosition;
 
 	private Queue<Vector3> pathPositions = new Queue<Vector3>();
 	private bool isPathing = false;
@@ -28,27 +29,38 @@ public class AntController : MonoBehaviour {
 	}
 
 	private void UpdateRotation() {
-		var lookPos = targetPosition - transform.position;
+		var lookPos = nextPosition - transform.position;
 		lookPos.y = 0;
 		var rotation = Quaternion.LookRotation(lookPos);
 		transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Clock.DeltaTime * turnSpeed);
 	}
 
 	private void UpdateMovement() {
-		transform.position = Vector3.MoveTowards(transform.position, targetPosition, Clock.DeltaTime * speed);
+		transform.position = Vector3.MoveTowards(transform.position, nextPosition, Clock.DeltaTime * GetCurrentSpeed());
 
-		if (Vector3.Distance(targetPosition, transform.position) < Clock.DeltaTime * speed) {
-			if (pathPositions.Count > 0) targetPosition = pathPositions.Dequeue();
+		if (Vector3.Distance(nextPosition, transform.position) < Clock.DeltaTime * speed) {
+			if (pathPositions.Count > 0) nextPosition = pathPositions.Dequeue();
 			else isPathing = false;
 		}
+	}
+
+	public float GetCurrentSpeed() {
+		if (!adjustableSpeed) return speed;
+
+		if (!isPathing) return 0;
+
+		if (pathLength > 1) return speed * pathLength;
+
+		return speed;
 	}
 
 	public void SetTargetDestination(Vector3 position) {
 		if (Vector3.Distance(position, transform.position) < Clock.DeltaTime * speed) return;
 
 		pathPositions.Clear();
-		targetPosition = transform.position;
-	
+		nextPosition = transform.position;
+		pathLength = 0;
+
 		NavMeshPath path = new NavMeshPath();
 		NavMesh.CalculatePath(transform.position, position, -1, path);
 	
@@ -58,9 +70,10 @@ public class AntController : MonoBehaviour {
 				Vector3 fixedPosition = new Vector3(path.corners[i].x, 0, path.corners[i].z);
 	
 				pathPositions.Enqueue(fixedPosition);
+				pathLength += Vector3.Distance(path.corners[i - 1], path.corners[i]);
 			}
 	
-			targetPosition = pathPositions.Dequeue();
+			nextPosition = pathPositions.Dequeue();
 			isPathing = true;
 		}
 		
