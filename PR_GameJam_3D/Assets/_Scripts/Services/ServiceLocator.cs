@@ -5,6 +5,7 @@ using UnityEngine;
 public class ServiceLocator : MonoBehaviour {
 	// Readonly services
 	public GroupController @GroupController { get; private set; }
+	public CollectableCounter FoodCollectables { get; private set; }
 
 	// Singleton
 	public static ServiceLocator Instance { get; private set; }
@@ -20,5 +21,6 @@ public class ServiceLocator : MonoBehaviour {
 
 	protected virtual void LocateServices() {
 		@GroupController = FindObjectOfType<GroupController>();
+		FoodCollectables = new CollectableCounter();
 	}
 }

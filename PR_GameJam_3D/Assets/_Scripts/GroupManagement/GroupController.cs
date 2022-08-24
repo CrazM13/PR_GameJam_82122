@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class GroupController : MonoBehaviour {
 
 	[SerializeField] private GroupVisualizer groupVisualizer;
-	[SerializeField] private GroupVisualizer carryVisualizer;
 	[SerializeField] private CarriableObject startingAnt;
 
 	private List<AntController> groupedAnts = new List<AntController>();
@@ -27,7 +26,7 @@ public class GroupController : MonoBehaviour {
 		}
 
 		for (int i = 0; i < carriedObjects.Count; i++) {
-			carriedObjects[i].transform.position = transform.position + carryVisualizer.GetLocalPosition(i) + Vector3.up;
+			carriedObjects[i].transform.position = groupVisualizer.GetWorldPosition(i) + Vector3.up;
 		}
 
 		AttemptPickupObjects();
@@ -50,7 +49,7 @@ public class GroupController : MonoBehaviour {
 		Collider[] colliders = Physics.OverlapBox(transform.position, new Vector3(groupVisualizer.Radius, 0.25f, groupVisualizer.Radius));
 
 		foreach (Collider c in colliders) {
-			CarriableObject @object = c.GetComponent<CarriableObject>();
+			CarriableObject @object = c.GetComponentInParent<CarriableObject>();
 			if (@object && @object.CanBeCarriedBy(this)) {
 				@object.AttemptPickUpBy(this);
 			}
@@ -59,7 +58,5 @@ public class GroupController : MonoBehaviour {
 
 	public void CarryObject(CarriableObject @object) {
 		carriedObjects.Add(@object);
-		carryVisualizer.Radius = groupVisualizer.Radius;//Mathf.Sqrt(carriedObjects.Count);
-		carryVisualizer.RecalculatePositions(carriedObjects.Count);
 	}
 }
