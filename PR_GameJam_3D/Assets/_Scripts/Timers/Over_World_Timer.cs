@@ -45,4 +45,15 @@ public class Over_World_Timer : MonoBehaviour
     {
         //On 0, end the game
     }
+
+    public void incrementTimer(int increment)
+    {
+        currentTimer += increment;
+        if(currentTimer > startTimer)
+        {
+            startTimer = currentTimer;
+            slider.maxValue = currentTimer;
+            slider.value = currentTimer;
+        }
+    }
 }
