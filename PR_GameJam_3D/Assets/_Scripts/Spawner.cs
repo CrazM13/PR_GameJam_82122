@@ -27,11 +27,11 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < SpawnAttempts; i++)
         {
-            float x = Random.value;
-            float y = Random.value;
-            Vector3 point = new Vector3(x * range,STARTINGY,y * range);
+            float x = Random.Range(-1f, 1f);
+            float y = Random.Range(-1f, 1f);
+			Vector3 point = new Vector3(x * range,STARTINGY,y * range);
         
-            if(Physics.Raycast(point, Vector3.down, out RaycastHit hit, STARTINGY, LayerMask.GetMask("Ground")))
+            if(Physics.Raycast(point, Vector3.down, out RaycastHit hit, STARTINGY * 2, LayerMask.GetMask("Ground")))
             {
                 point = hit.point;
 
@@ -39,7 +39,6 @@ public class Spawner : MonoBehaviour
 
                 SpawnObject(spawner.spawnObject, point);
             }
-        
-        } 
+		} 
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshObstacle))]
 public abstract class CarriableObject : MonoBehaviour {
 
+	[SerializeField] private GameObject pickupEffect;
 	[SerializeField] private int requiredNumberOfUnits = 1;
 	NavMeshObstacle obstacle;
 
@@ -30,6 +31,11 @@ public abstract class CarriableObject : MonoBehaviour {
 		group.OnPickUpCarriable.RemoveListener(UpdateObsticle);
 		obstacle.enabled = false;
 		CanPickUp = false;
+
+		GameObject newEffect = Instantiate(pickupEffect, transform.position + Vector3.up, Quaternion.identity);
+		ParticleSystem particles = newEffect.GetComponent<ParticleSystem>();
+		if (particles) particles.Play();
+		Destroy(newEffect, 5f);
 	}
 
 	protected abstract void PickUpBy(GroupController group);

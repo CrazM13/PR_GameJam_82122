@@ -47,7 +47,7 @@ public class Anthill_Collection : MonoBehaviour
 
         if(score >= 15)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
     public int getScore()

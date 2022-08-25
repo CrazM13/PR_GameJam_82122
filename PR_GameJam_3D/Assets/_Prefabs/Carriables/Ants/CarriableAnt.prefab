@@ -108,5 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6096a1cd720d99d42b5db38b365b8e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupEffect: {fileID: 5147097430994341125, guid: e30018071e7369f4da1f6d91e4c6bba2, type: 3}
   requiredNumberOfUnits: 0
   groupAntPrefab: {fileID: 2256183067281930583, guid: e7527620502166948a8707fdc022e808, type: 3}

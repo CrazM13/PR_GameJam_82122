@@ -43,7 +43,7 @@ public class Over_World_Timer : MonoBehaviour
 
     private void OnEnd()
     {
-        //On 0, end the game
+		SceneController.LoadScene(2, 1, 2);
     }
 
     public void incrementTimer(int increment)
