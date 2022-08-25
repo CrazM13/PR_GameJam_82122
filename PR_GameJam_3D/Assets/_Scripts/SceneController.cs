@@ -37,16 +37,17 @@ public  class SceneController : MonoBehaviour
 
     private IEnumerator FaderScene(int index, float duration, float waitTime)
     {
+        Debug.Log("in coroutine");
         fader.gameObject.SetActive(true);
 
-        for(float t = 0; t < 1; t += Time.captureDeltaTime / duration)
+
+        for(float t = 0; t < 1; t += Time.deltaTime / duration)
         {
             fader.color = new Color(0, 0, 0, Mathf.Lerp(0,1,t));
             yield return null;
                        
         }
-        SceneManager.LoadScene(index);
-
+     
         AsyncOperation ao = SceneManager.LoadSceneAsync(index);     
         
         while(!ao.isDone)
@@ -54,7 +55,7 @@ public  class SceneController : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
 
-        for (float t = 0; t < 1; t += Time.captureDeltaTime / duration)
+        for (float t = 0; t < 1; t += Time.deltaTime / duration)
         {
             fader.color = new Color(0, 0, 0, Mathf.Lerp(1, 0, t));
             yield return null;
