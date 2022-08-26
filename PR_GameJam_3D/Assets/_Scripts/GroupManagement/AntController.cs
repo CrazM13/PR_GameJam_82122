@@ -109,6 +109,10 @@ public class AntController : MonoBehaviour {
 		}
 	}
 
+	public void AdjustSpeed(float multiplier) {
+		speed *= multiplier;
+	}
+
 	private void OnDrawGizmosSelected() {
 		Vector3[] positions = pathPositions.ToArray();
 

@@ -11,7 +11,10 @@ public class CarriableAnt : CarriableObject {
 		GameObject newAnt = Instantiate(groupAntPrefab, transform.position, transform.rotation, group.transform.parent);
 
 		AntController newAntController = newAnt.GetComponent<AntController>();
-		if (newAntController) group.AddAnt(newAntController);
+		if (newAntController) {
+			group.AddAnt(newAntController);
+			//newAntController.AdjustSpeed(Random.Range(0.25f, 1.75f));
+		}
 
 		Destroy(gameObject);
 	}
