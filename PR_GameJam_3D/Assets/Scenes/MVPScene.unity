@@ -768,8 +768,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objLoad:
-  - spawnObject: {fileID: 6484999015481589944, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
-    weight: 50
   - spawnObject: {fileID: 1566114261313484220, guid: bc73ea53ff6334b4398b737ee6861f8a, type: 3}
     weight: 9
   - spawnObject: {fileID: 8771204510842613436, guid: 76486b780f54f734385946389323f390, type: 3}
@@ -788,6 +786,10 @@ MonoBehaviour:
     weight: 3
   - spawnObject: {fileID: 309660853545787465, guid: 8b40121cc2ebe2f4ab24d854baeb5ec1, type: 3}
     weight: 1
+  antObjectLoad:
+  - spawnObject: {fileID: 6484999015481589944, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
+    weight: 1
+  spawner: {fileID: 564614386}
 --- !u!114 &564614386
 MonoBehaviour:
   m_ObjectHideFlags: 0
