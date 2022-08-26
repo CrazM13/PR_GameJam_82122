@@ -55,7 +55,11 @@ public class AntController : MonoBehaviour {
 	}
 
 	public void SetTargetDestination(Vector3 position) {
-		if (Vector3.Distance(position, transform.position) < Clock.DeltaTime * speed) return;
+		if (NavMesh.SamplePosition(position, out NavMeshHit hit, 4, -1)) {
+			position = hit.position;
+		}
+
+		if (Vector3.Distance(position, transform.position) <= Clock.DeltaTime * speed) return;
 
 		pathPositions.Clear();
 		nextPosition = transform.position;
@@ -63,27 +67,55 @@ public class AntController : MonoBehaviour {
 
 		NavMeshPath path = new NavMeshPath();
 		NavMesh.CalculatePath(transform.position, position, -1, path);
-	
+
+		AddPath(path);
+
+	}
+
+	public void QueueTargetDestination(Vector3 position) {
+		if (NavMesh.SamplePosition(position, out NavMeshHit hit, 4, -1)) {
+			position = hit.position;
+		}
+
+		if (Vector3.Distance(position, transform.position) <= Clock.DeltaTime * speed) return;
+
+		NavMeshPath path = new NavMeshPath();
+
+		Vector3 startPos = transform.position;
+
+		if (pathPositions.Count > 0) {
+			Vector3[] positions = pathPositions.ToArray();
+			startPos = positions[positions.Length - 1];
+		}
+
+		NavMesh.CalculatePath(startPos, position, -1, path);
+
+		AddPath(path, !isPathing);
+
+	}
+
+	private void AddPath(NavMeshPath path, bool startPath = true) {
 		if (path.corners.Length > 1) {
-	
+
 			for (int i = 1; i < path.corners.Length; i++) {
 				Vector3 fixedPosition = new Vector3(path.corners[i].x, 0, path.corners[i].z);
-	
+
 				pathPositions.Enqueue(fixedPosition);
 				pathLength += Vector3.Distance(path.corners[i - 1], path.corners[i]);
 			}
-	
-			nextPosition = pathPositions.Dequeue();
+
+			if (startPath) nextPosition = pathPositions.Dequeue();
 			isPathing = true;
 		}
-		
 	}
 
 	private void OnDrawGizmosSelected() {
 		Vector3[] positions = pathPositions.ToArray();
 
+		Gizmos.DrawWireSphere(nextPosition, 1);
+
 		foreach (Vector3 pos in positions) {
-			Gizmos.DrawSphere(pos, 1);
+			Gizmos.DrawWireSphere(pos, 1);
 		}
 	}
 }

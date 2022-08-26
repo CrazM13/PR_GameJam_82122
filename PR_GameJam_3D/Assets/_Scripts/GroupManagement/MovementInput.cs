@@ -13,16 +13,18 @@ public class MovementInput : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		UpdatePause();
 		UpdateMouseMovement();
 		UpdateKeybordMovement();
 	}
 
 	private void UpdateMouseMovement() {
-		if (Input.GetMouseButtonDown(0)) {
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, LayerMask.GetMask("Ground"))) {
-				controller.SetTargetDestination(hit.point);
-			}
+		if (Input.GetMouseButton(0)) {
+			Vector3? position = RaycastMouse();
+			if (position.HasValue) controller.SetTargetDestination(position.Value);
+		} else if (Input.GetMouseButtonDown(1)) {
+			Vector3? position = RaycastMouse();
+			if (position.HasValue) controller.QueueTargetDestination(position.Value);
 		}
 	}
 
@@ -31,5 +33,21 @@ public class MovementInput : MonoBehaviour {
 		float y = Input.GetAxis("Vertical");
 
 		if (x != 0 || y != 0) controller.SetTargetDestination(controller.transform.position + ((Vector3.forward * y) + (Vector3.right * x)));
+	}
+
+	private void UpdatePause() {
+		if (Input.GetButtonDown("Pause")) {
+			Debug.Log("Pause");
+			Clock.IsPaused = !Clock.IsPaused;
+		}
+	}
+
+	private Vector3? RaycastMouse() {
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, LayerMask.GetMask("Ground"))) {
+			return hit.point;
+		}
+
+		return null;
 	}
 }

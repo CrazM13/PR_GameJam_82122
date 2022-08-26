@@ -15,10 +15,15 @@ public class CarriableFood : CarriableObject {
 	protected override void PickUpBy(GroupController group) {
 		group.CarryObject(this);
 		transform.SetParent(group.transform.parent);
+		ShowText(false);
 	}
 
 	public void RemoveCarriableFood() {
 		ServiceLocator.Instance.FoodCollectables.CollectCollectable();
+	}
+
+	public void ShowText(bool show) {
+		text.alpha = show ? 1 : 0;
 	}
 
 }

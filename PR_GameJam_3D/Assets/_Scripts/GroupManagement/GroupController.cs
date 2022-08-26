@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class GroupController : MonoBehaviour {
 
+	[Header("References")]
 	[SerializeField] private GroupVisualizer groupVisualizer;
 	[SerializeField] private CarriableObject startingAnt;
+	[SerializeField] private TMP_Text text;
+	[Header("Settings")]
+	[SerializeField] private bool showAntCountAlways = false;
+
 
 	private List<AntController> groupedAnts = new List<AntController>();
 	private List<CarriableObject> carriedObjects = new List<CarriableObject>();
@@ -29,6 +35,8 @@ public class GroupController : MonoBehaviour {
 			carriedObjects[i].transform.position = groupVisualizer.GetWorldPosition(i) + Vector3.up;
 		}
 
+		text.transform.position = (6 * Vector3.up) + transform.position;
+
 		AttemptPickupObjects();
 	}
 
@@ -36,6 +44,10 @@ public class GroupController : MonoBehaviour {
 		groupedAnts.Add(ant);
 		groupVisualizer.Radius = Mathf.Sqrt(groupedAnts.Count);
 		groupVisualizer.RecalculatePositions(groupedAnts.Count);
+		if (showAntCountAlways || carriedObjects.Count > 0) {
+			text.alpha = 1;
+			text.text = GetRemainingUnitCount().ToString();
+		}
 	}
 
 	public int GetRemainingUnitCount() {
@@ -52,6 +64,10 @@ public class GroupController : MonoBehaviour {
 			CarriableObject @object = c.GetComponentInParent<CarriableObject>();
 			if (@object && @object.CanBeCarriedBy(this)) {
 				@object.AttemptPickUpBy(this);
+				if (carriedObjects.Count > 0) {
+					text.alpha = 1;
+					text.text = GetRemainingUnitCount().ToString();
+				}
 			}
 		}
 	}
@@ -71,6 +87,8 @@ public class GroupController : MonoBehaviour {
 			if (obj is CarriableFood food) food.RemoveCarriableFood();
 			Destroy(obj.gameObject);
 		}
+
 		carriedObjects.Clear();
+		if (!showAntCountAlways) text.alpha = 0;
 	}
 }
