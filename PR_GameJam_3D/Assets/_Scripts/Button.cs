@@ -7,7 +7,7 @@ public class Button : MonoBehaviour
 {
     public void LoadScene(int i)
     {
-        SceneController.LoadScene(i, 1, 2);
+        SceneController.LoadScene(i, 1, 0);
     }
  
 }
