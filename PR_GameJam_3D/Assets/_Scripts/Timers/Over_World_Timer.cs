@@ -27,9 +27,9 @@ public class Over_World_Timer : MonoBehaviour
     {
         while(currentTimer>= 0)
         {
-            countdownText.text = $"{currentTimer / 60:00}:{currentTimer % 60:00}";
-            currentTimer--;
-            slider.value = currentTimer;
+            if (!Clock.IsPaused) currentTimer--;
+			countdownText.text = $"{currentTimer / 60:00}:{currentTimer % 60:00}";
+			slider.value = currentTimer;
             yield return new WaitForSeconds(1f);
         }
         OnEnd();

@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MVPScene.unity
     guid: 7614a7b98c5929449bcaffa8f596e104
   - enabled: 1

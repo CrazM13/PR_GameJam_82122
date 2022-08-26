@@ -16,6 +16,11 @@ public class MovementInput : MonoBehaviour {
 		UpdatePause();
 		UpdateMouseMovement();
 		UpdateKeybordMovement();
+
+#if UNITY_EDITOR
+		// Cheat Button
+		if (Input.GetKeyDown(KeyCode.K)) ServiceLocator.Instance.FoodCollectables.CollectCollectable();
+#endif
 	}
 
 	private void UpdateMouseMovement() {
