@@ -89,6 +89,7 @@ public class GroupController : MonoBehaviour {
 		}
 
 		carriedObjects.Clear();
+		text.text = GetRemainingUnitCount().ToString();
 		if (!showAntCountAlways) text.alpha = 0;
 	}
 }
