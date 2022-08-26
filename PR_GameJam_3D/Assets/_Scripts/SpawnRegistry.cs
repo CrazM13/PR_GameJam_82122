@@ -26,4 +26,9 @@ public static class SpawnRegistry
 
         return regObj[indecies[(int)(Random.value * indecies.Count)]];
     }
+
+    public static void Clear()
+    {
+        regObj.Clear();
+    }
 }
