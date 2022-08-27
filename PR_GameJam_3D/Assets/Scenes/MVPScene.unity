@@ -1222,23 +1222,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objLoad:
   - spawnObject: {fileID: 1566114261313484220, guid: bc73ea53ff6334b4398b737ee6861f8a, type: 3}
-    weight: 9
-  - spawnObject: {fileID: 8771204510842613436, guid: 76486b780f54f734385946389323f390, type: 3}
-    weight: 9
+    weight: 18
   - spawnObject: {fileID: 1929498964655372285, guid: 23509e671ef802c48afbdd68d560db65, type: 3}
-    weight: 7
-  - spawnObject: {fileID: 1473929865451227870, guid: 3c3d8d1f549dda74cafc660529c0f4fe, type: 3}
-    weight: 7
+    weight: 16
   - spawnObject: {fileID: 6864898258300952696, guid: bbde8f18494b38d4faa11a5d35bfc23b, type: 3}
-    weight: 5
-  - spawnObject: {fileID: 4714693398936424282, guid: c9247755520c0514dac2bef29aadf733, type: 3}
-    weight: 5
+    weight: 14
   - spawnObject: {fileID: 1070724832683227079, guid: 1473722796956514195fe1fbd8210ef0, type: 3}
-    weight: 3
-  - spawnObject: {fileID: 5636729006140981812, guid: 8e92938826f97034c9e2eaa28bbaaecc, type: 3}
-    weight: 3
+    weight: 10
   - spawnObject: {fileID: 309660853545787465, guid: 8b40121cc2ebe2f4ab24d854baeb5ec1, type: 3}
-    weight: 1
+    weight: 3
   antObjectLoad:
   - spawnObject: {fileID: 6484999015481589944, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
     weight: 1
