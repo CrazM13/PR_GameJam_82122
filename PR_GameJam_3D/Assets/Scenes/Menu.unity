@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5405775164731123937, guid: 7a8a4d2ce092327499a9e7f5a0d6029c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5405775164731123938, guid: 7a8a4d2ce092327499a9e7f5a0d6029c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -247,6 +251,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6484999015481589943, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6484999015481589944, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
       propertyPath: m_Name
       value: CarriableAnt
@@ -304,6 +312,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7486277007155367959, guid: f505ab59da495ec4da98a4f6a734a886, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7486277007155367960, guid: f505ab59da495ec4da98a4f6a734a886, type: 3}
       propertyPath: m_Name
       value: RockObsticle
@@ -317,6 +329,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2826840825124110658, guid: b553bffcd58ede14dab484755f96629c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3454938690314200950, guid: b553bffcd58ede14dab484755f96629c, type: 3}
       propertyPath: m_Name
       value: Watermelon Slice Variant
@@ -576,6 +592,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6484999015481589943, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6484999015481589944, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
       propertyPath: m_Name
       value: CarriableAnt (1)
@@ -633,6 +653,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -7.054
       objectReference: {fileID: 0}
+    - target: {fileID: 6308866018358838860, guid: bbde8f18494b38d4faa11a5d35bfc23b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6864898258300952696, guid: bbde8f18494b38d4faa11a5d35bfc23b, type: 3}
       propertyPath: m_Name
       value: Apple Slice Variant
@@ -688,6 +712,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6484999015481589940, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484999015481589943, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6484999015481589944, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
@@ -1353,6 +1381,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3871686633810246454, guid: ce6833ebf331dff469a6595e0e07c4cc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3871686633810246477, guid: ce6833ebf331dff469a6595e0e07c4cc, type: 3}
       propertyPath: m_Name
       value: Anthill
@@ -1408,6 +1440,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6484999015481589940, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484999015481589943, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6484999015481589944, guid: 77e68589cc3ecb04a80f6c5a41d381e9, type: 3}
