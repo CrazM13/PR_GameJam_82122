@@ -9,4 +9,11 @@ public class PauseMenu : HideableMenu {
 		Clock.OnUnpause.AddListener(HideMenu);
 	}
 
+	public void Resume() {
+		Clock.IsPaused = false;
+	}
+	public void QuitGame() {
+		Application.Quit();
+	}
+
 }
