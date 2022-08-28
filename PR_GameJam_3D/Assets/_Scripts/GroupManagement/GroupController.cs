@@ -55,6 +55,10 @@ public class GroupController : MonoBehaviour {
 			text.alpha = 1;
 			text.text = GetRemainingUnitCount().ToString();
 		}
+		if (timeUntilAudio <= 0) {
+			ServiceLocator.Instance.Audio.PlayJoin();
+			timeUntilAudio += audioInterval;
+		}
 	}
 
 	public int GetRemainingUnitCount() {

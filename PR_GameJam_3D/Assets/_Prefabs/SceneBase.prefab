@@ -203,6 +203,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d45958bfc4475b842a7b67743d9d1581, type: 3}
   - {fileID: 8300000, guid: f3b121201cd04354d92a9d4a84513118, type: 3}
   - {fileID: 8300000, guid: 222db068eb86a584b8f7d2299b4689de, type: 3}
+  joinLines:
+  - {fileID: 8300000, guid: d5033f9dc67dfc5429130bc9e91f90c4, type: 3}
+  - {fileID: 8300000, guid: 7346237a9670bc845bbc6481d0f35979, type: 3}
+  - {fileID: 8300000, guid: a01456779a410df4ca5040e521920512, type: 3}
+  - {fileID: 8300000, guid: af8bbdc5bfb6a694aa23e7cda8211c9e, type: 3}
+  - {fileID: 8300000, guid: c1b98a78c4517d24bbd35101040c607f, type: 3}
 --- !u!82 &1783113748348279983
 AudioSource:
   m_ObjectHideFlags: 0

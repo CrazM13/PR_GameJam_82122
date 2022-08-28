@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour {
 	[SerializeField] private AudioClip[] idleLines;
 	[SerializeField] private AudioClip[] pickUpLines;
 	[SerializeField] private AudioClip[] dropOffLines;
+	[SerializeField] private AudioClip[] joinLines;
 
 	void Start() {
 		audio = GetComponent<AudioSource>();
@@ -36,6 +37,10 @@ public class AudioManager : MonoBehaviour {
 
 	public void PlayDropOff() {
 		PlayRandom(dropOffLines);
+	}
+
+	public void PlayJoin() {
+		PlayRandom(joinLines);
 	}
 
 }

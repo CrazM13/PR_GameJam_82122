@@ -266,7 +266,7 @@ MonoBehaviour:
   startingAnt: {fileID: 3849605153763867752}
   text: {fileID: 2131932499460543947}
   showAntCountAlways: 1
-  audioInterval: 10
+  audioInterval: 3
 --- !u!114 &3849605154476870410
 MonoBehaviour:
   m_ObjectHideFlags: 0

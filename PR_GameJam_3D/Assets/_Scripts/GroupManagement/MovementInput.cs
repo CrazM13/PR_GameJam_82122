@@ -37,11 +37,9 @@ public class MovementInput : MonoBehaviour {
 		if (Input.GetMouseButton(0)) {
 			Vector3? position = RaycastMouse();
 			if (position.HasValue) controller.SetTargetDestination(position.Value);
-			idleTimer = 0;
 		} else if (Input.GetMouseButtonDown(1)) {
 			Vector3? position = RaycastMouse();
 			if (position.HasValue) controller.QueueTargetDestination(position.Value);
-			idleTimer = 0;
 		}
 	}
 
