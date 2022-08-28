@@ -43,6 +43,7 @@ public class Anthill_Collection : MonoBehaviour
             score += group.GetCarryObjectScore() * 5;
             dropOff.Play();
             group.ClearCarry();
+			ServiceLocator.Instance.Audio.PlayDropOff();
 
 			if (ServiceLocator.Instance.FoodCollectables.IsComplete) {
 				SceneController.LoadScene(1, 1, 2);

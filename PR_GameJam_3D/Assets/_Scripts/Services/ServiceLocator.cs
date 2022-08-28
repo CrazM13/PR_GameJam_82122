@@ -7,6 +7,8 @@ public class ServiceLocator : MonoBehaviour {
 	public GroupController @GroupController { get; private set; }
 	public CollectableCounter FoodCollectables { get; private set; }
 
+	public AudioManager Audio { get; set; }
+
 	// Singleton
 	public static ServiceLocator Instance { get; private set; }
 
@@ -22,5 +24,6 @@ public class ServiceLocator : MonoBehaviour {
 	protected virtual void LocateServices() {
 		@GroupController = FindObjectOfType<GroupController>();
 		FoodCollectables = new CollectableCounter();
+		Audio = FindObjectOfType<AudioManager>();
 	}
 }

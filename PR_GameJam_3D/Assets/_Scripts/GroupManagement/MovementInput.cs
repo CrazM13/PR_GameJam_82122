@@ -6,6 +6,10 @@ public class MovementInput : MonoBehaviour {
 
 	[SerializeField] private AntController controller;
 
+	private float idleTimer = 0;
+	[SerializeField]  private float timeUntilIdle;
+
+
 	// Start is called before the first frame update
 	void Start() {
 
@@ -21,15 +25,23 @@ public class MovementInput : MonoBehaviour {
 		// Cheat Button
 		if (Input.GetKeyDown(KeyCode.K)) ServiceLocator.Instance.FoodCollectables.CollectCollectable();
 #endif
+
+		idleTimer += Clock.DeltaTime;
+		if (idleTimer > timeUntilIdle) {
+			ServiceLocator.Instance.Audio.PlayIdle();
+			idleTimer = 0;
+		}
 	}
 
 	private void UpdateMouseMovement() {
 		if (Input.GetMouseButton(0)) {
 			Vector3? position = RaycastMouse();
 			if (position.HasValue) controller.SetTargetDestination(position.Value);
+			idleTimer = 0;
 		} else if (Input.GetMouseButtonDown(1)) {
 			Vector3? position = RaycastMouse();
 			if (position.HasValue) controller.QueueTargetDestination(position.Value);
+			idleTimer = 0;
 		}
 	}
 

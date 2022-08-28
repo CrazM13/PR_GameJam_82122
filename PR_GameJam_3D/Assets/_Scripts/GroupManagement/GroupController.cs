@@ -12,6 +12,9 @@ public class GroupController : MonoBehaviour {
 	[SerializeField] private TMP_Text text;
 	[Header("Settings")]
 	[SerializeField] private bool showAntCountAlways = false;
+	[SerializeField] private float audioInterval;
+
+	private float timeUntilAudio = 0;
 
 
 	private List<AntController> groupedAnts = new List<AntController>();
@@ -38,6 +41,10 @@ public class GroupController : MonoBehaviour {
 		text.transform.position = (6 * Vector3.up) + transform.position;
 
 		AttemptPickupObjects();
+
+		if (timeUntilAudio > 0) {
+			timeUntilAudio -= Clock.DeltaTime;
+		}
 	}
 
 	public void AddAnt(AntController ant) {
@@ -74,6 +81,10 @@ public class GroupController : MonoBehaviour {
 
 	public void CarryObject(CarriableObject @object) {
 		carriedObjects.Add(@object);
+		if (timeUntilAudio <= 0) {
+			ServiceLocator.Instance.Audio.PlayPickUp();
+			timeUntilAudio += audioInterval;
+		}
 	}
 
 	public int GetCarryObjectScore() {
