@@ -46,7 +46,7 @@ public class Anthill_Collection : MonoBehaviour
 			ServiceLocator.Instance.Audio.PlayDropOff();
 
 			if (ServiceLocator.Instance.FoodCollectables.IsComplete) {
-				SceneController.LoadScene(1, 1, 2);
+				SceneController.LoadScene(2, 1, 2);
 			}
         }
     }
