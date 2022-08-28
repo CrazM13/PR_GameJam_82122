@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 5b5d4053ffb41ef47b284fa7c1aa54b4
   - enabled: 0
     path: Assets/Scenes/MVPScene.unity
     guid: 7614a7b98c5929449bcaffa8f596e104
@@ -17,7 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lose_Scene.unity
     guid: bf228098ed3c3ae4b82316e948fd2cc8
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 5b5d4053ffb41ef47b284fa7c1aa54b4
   m_configObjects: {}
