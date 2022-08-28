@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8500163483530875988}
   - component: {fileID: 7270350217709337994}
   - component: {fileID: 514786223882153875}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FoodItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 889387139943703754}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 169769991605932829}
   - component: {fileID: 3293826284089047942}
   - component: {fileID: 1540225394414185176}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

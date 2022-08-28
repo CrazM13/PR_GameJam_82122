@@ -30,14 +30,17 @@ public class Spawner : MonoBehaviour
             float x = Random.Range(-1f, 1f);
             float y = Random.Range(-1f, 1f);
 			Vector3 point = new Vector3(x * range,STARTINGY,y * range);
-        
-            if(Physics.Raycast(point, Vector3.down, out RaycastHit hit, STARTINGY * 2, LayerMask.GetMask("Ground")))
-            {
-                point = hit.point;
 
-                SpawnableObject spawner = SpawnRegistry.GetRanObj();
+			if (Physics.Raycast(point, Vector3.down, out RaycastHit hit, STARTINGY * 2, LayerMask.GetMask("Ground"))) {
+				if (!Physics.Linecast(point, hit.point, LayerMask.GetMask("Obsticle"))) {
+					point = hit.point;
 
-                SpawnObject(spawner.spawnObject, point);
+
+					SpawnableObject spawner = SpawnRegistry.GetRanObj();
+
+					SpawnObject(spawner.spawnObject, point);
+				}
+					
             }
 		} 
     }

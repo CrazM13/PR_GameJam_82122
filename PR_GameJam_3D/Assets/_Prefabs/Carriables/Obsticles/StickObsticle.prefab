@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5405775164731123943}
   - component: {fileID: 5405775164731123936}
   - component: {fileID: 5405775164731123937}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StickObsticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5405775164942942922}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,6 +163,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: df95e965cfadad048a293199a68d9321, type: 3}
       propertyPath: m_Name
       value: stick
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: df95e965cfadad048a293199a68d9321, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df95e965cfadad048a293199a68d9321, type: 3}
